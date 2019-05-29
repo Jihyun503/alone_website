@@ -2,9 +2,70 @@
 <html lang="ko">
 <head>
 <style>
+    body{
+        font-family:'한컴 윤고딕 230';
+        background-color: #f2f2f2;
+        color: #000;}
 </style>
 </head>
 
-<body bgcolor= "#160a3a">
+<body>
+<div id = "list">
+    <p id="name"></p>
+    </div>
+    
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    
+    var config = {
+        apiKey: "AIzaSyCySLQvRZI2KweYErkZDmTQ47588Rl-kNU",
+        authDomain: "alone-5017d.firebaseapp.com",
+        databaseURL: "https://alone-5017d.firebaseio.com",
+        storageBucket: "gs://alone-5017d.appspot.com"
+      };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+
+    var list;
+    
+    var dbTestRef = database.ref('messages/');
+    console.log(dbTestRef);
+    
+    dbTestRef.on('child_added', function(snapshot) {
+	  var data = snapshot.val();
+        console.log(snapshot.val())
+		var message = data.text;
+        var name = data.name;
+		if(message != undefined){
+			$('#list').append(name+' '+message+'<br>');
+            console.log(list);
+		}
+        
+	});
+    
+    /*dbTestRef.on('child_added', function(data){
+    console.log(data.val())
+    var Data = data.val();
+    var text = Data.text;
+    //var createtime = Data.createtime;
+    var name = Data.name;
+    var email = Data.email;
+    if(text != undefined){
+        list.value += text + "\n";
+    }*/
+        
+    /*var html =
+    "<h4>" + name +
+    " <br>" + email + "<br>" + text + "<br></h4>" +
+    "<hr>";
+    
+    document.getElementById('List').innerHTML=html*/
+      
+    //$("#List").append(html);
+    
+    //});
+
+</script>
 </body> 
 </html>
