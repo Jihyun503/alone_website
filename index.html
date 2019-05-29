@@ -61,20 +61,6 @@
     firebase.initializeApp(config);
     var database = firebase.database();
     
-    /*var dbTestRef = database.ref('messages/');
-    console.log(dbTestRef);
-    
-    dbTestRef.on('child_added', function(snapshot) {
-	  var data = snapshot.val();
-        console.log(snapshot.val())
-		var message = data.text;
-        var name = data.name;
-		if(message != undefined){
-			$('#list').append(name+' '+message+'<br>');
-            console.log(list);
-		}
-        
-	});*/
 function insert(name, number, text){
     if(name == "" || number == "" || text == ""){
         alert("빈칸을 모두 입력해주세요");

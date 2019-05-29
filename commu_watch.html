@@ -1,17 +1,68 @@
 <meta charset="UTF-8">
 <html lang="ko">
 <head>
-<style>
+<style type="text/css">
     body{
         font-family:'한컴 윤고딕 230';
         background-color: #f2f2f2;
         color: #000;}
+    
+    #d {
+	float:right;
+	margin:0px 0px 80px 0px;
+	padding:0 0 3px 0;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background-color:#f2f2f2;
+    text-align: justify;
+    width: 700px;
+}
+#d ul li {float:left;}
+#d a {
+	color:#000;
+	font-family:'한컴 윤고딕 230';
+	font-size:25px;
+	padding:0 10px 0 10px;
+	text-decoration:none;
+}
+#d a:hover {color:#2762a9;}
+
+    div {margin:0; padding:0; box-sizing:border-box;}
+    li {list-style-type:none;}
+    .clear:after {content:""; display:block; clear:both;}
+    
+    .content1 {padding:50px 0px 100px 10px;}
+    .content2 {padding:100px 0px 10px 10px;}
+    
+    @media all and (min-width:768px) and (max-width:1024px) {
+        .lnb {float:left; width:25%;}
+        .content {float:left; width:75%;}
+        .aside {clear:both;}
+    }
+    @media all and (min-width:1025px) {
+        .wrap {max-width:1280px; margin:0 auto;}
+        .lnb {float:left; width:20%;}
+        .content {float:left; width:80%;}
+        .aside {clear:both;}
+    }
 </style>
 </head>
 
 <body>
+    <header><br>
+		  <div id="d">
+         <ul>
+          <li><div id="top"><a href="#back">배경</a></div></li>
+          <li><a href="index.html#function">기능</a></li>
+          <li><a href="index.html#review">리뷰작성</a></li>
+          <li><a href="review_watch.html">리뷰보기</a></li>
+          <li><a href="commu_watch.html">커뮤니티보기</a></li>
+       </ul>
+          </div>
+	    </header>
 <div id = "list">
-    <p id="name"></p>
     </div>
     
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
@@ -43,28 +94,6 @@
 		}
         
 	});
-    
-    /*dbTestRef.on('child_added', function(data){
-    console.log(data.val())
-    var Data = data.val();
-    var text = Data.text;
-    //var createtime = Data.createtime;
-    var name = Data.name;
-    var email = Data.email;
-    if(text != undefined){
-        list.value += text + "\n";
-    }*/
-        
-    /*var html =
-    "<h4>" + name +
-    " <br>" + email + "<br>" + text + "<br></h4>" +
-    "<hr>";
-    
-    document.getElementById('List').innerHTML=html*/
-      
-    //$("#List").append(html);
-    
-    //});
 
 </script>
 </body> 
