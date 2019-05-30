@@ -47,6 +47,9 @@
         .content {float:left; width:80%;}
         .aside {clear:both;}
     }
+    th{
+        font-size: 15pt;
+    }
 </style>
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -63,7 +66,7 @@
     var database = firebase.database();
 
     var list;
-    
+    var content=' ';
     var dbTestRef = database.ref('review/');
     console.log(dbTestRef);
     
@@ -74,7 +77,13 @@
         var name = data.name;
         var message = data.text;
 		if(message != undefined){
-			$('#list').append(number+' '+name+' '+message+'<br>');
+             content='<table border="1"width="90%"><tr>'
+            +'<td width="30%"><center>'+number+'</center></td>'
+            +'<td width="30%"><center>'+name+'</center></td>'
+            +'<td width="30%"><center>'+message+'</center></td>'
+            +'</tr></table>';
+			//$('#list').append(number+' '+name+' '+message+'<br>');
+            $('#list').append(content);
             console.log(list);
 		}
         
@@ -82,10 +91,11 @@
 </script>
 </head>
 <body>
+     <div class="wrap">
     <header><br>
 		  <div id="d">
          <ul>
-          <li><div id="top"><a href="#back">배경</a></div></li>
+          <li><div id="top"><a href="index.html#back">배경</a></div></li>
           <li><a href="index.html#function">기능</a></li>
           <li><a href="index.html#review">리뷰작성</a></li>
           <li><a href="review_watch.html">리뷰보기</a></li>
@@ -93,7 +103,28 @@
        </ul>
           </div>
 	    </header>
+         
+         <br><br><br><br><br><br><br><br>
+         <center>
     <div id = "list">
+        <table border="1"width="90%">           
+        <tr>
+            <th><center>학번</center></th>   
+            <th><center>이름</center></th>
+            <th><center>내용</center></th>   
+        </tr>              
+        </table>
     </div>
+    </center>
+    </div>
+    
+    <a href="#"
+title="Back to Top"
+style="display:scroll;position:fixed;bottom:30px;right:15px;"
+onfocus='this.blur()'>
+<img 
+src="img/up.png"
+style="width:40px; height:40px; border-radius: 15px;"/>
+</a>
 </body>
 </html>
