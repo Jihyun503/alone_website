@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>나, 혼자 살까?</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Erik Terwan">
+
+	<link href="style.css" rel="stylesheet">
+	<link href="demo.css" rel="stylesheet">
+    
+<style>
+#menu {
+	float:right;
+	margin:0px 0px 80px 0px;
+	padding:0 0 3px 0;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background-color:#f2f2f2;
+    text-align: justify;
+    width: 700px;
+}
+#menu ul li {float:left; list-style-type:none;}
+
+#menu a {
+	color:#000;
+	font-family:'한컴 윤고딕 230';
+	font-size:25px;
+	padding:0 10px 0 10px;
+	text-decoration:none;
+}
+#menu a:hover {color:#2762a9;}
+    
+.content1 {padding:50px 0px 90px 10px;}
+.content2 {padding:50px 0px 10px 10px;}
+    
+#function {padding:50px 0px 90px 10px;}
+    
+
+@media all and (min-width:768px) and (max-width:1024px) {
+/*        .lnb {float:left; width:25%;}*/
+        .content {float:left; width:75%;}
+        .aside {clear:both;}
+    }
+
+@media all and (min-width:1025px) {
+        .wrap {max-width:1280px; margin:0 auto;}
+/*        .lnb {float:left; width:20%;}*/
+        .content {float:left; width:80%;}
+        .aside {clear:both;}
+}
+</style>
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    
+    var config = {
+        apiKey: "AIzaSyCySLQvRZI2KweYErkZDmTQ47588Rl-kNU",
+        authDomain: "alone-5017d.firebaseapp.com",
+        databaseURL: "https://alone-5017d.firebaseio.com",
+        storageBucket: "gs://alone-5017d.appspot.com"
+      };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+    
+function insert(name, number, text){
+    if(name == "" || number == "" || text == ""){
+        alert("빈칸을 모두 입력해주세요");
+    }
+    else{
+    database.ref('review/').push({"number": number, "name": name, "text": text})
+    alert("작성이 완료되었습니다!")
+    }
+    window.location.reload();
+}  
+</script>
+</head>
+<body>
+<div class="wrap">
+    <br>
+    <div id="menu">
+             <ul>
+              <li><div id="top"><a href="index.html#back">배경</a></div></li>
+              <li><a href="index.html#function">기능</a></li>
+              <li><a href="index.html#review">리뷰작성</a></li>
+              <li><a href="review_watch.html">리뷰보기</a></li>
+              <li><a href="commu_watch.html">커뮤니티보기</a></li>
+           </ul>
+    </div>
+    <img src ="img/bg.jpg" width="100%" height = "100%">  <br>
+</div>
+<!--<div class="block">
+	<h1 data-scroll="toggle(.scaleUpIn, .scaleUpOut)">Scroll<span></span>Trigger</h1>
+	<h2 data-scroll="toggle(.fromBottomIn, .fromBottomOut)">Add scroll based animations to your site with ease.</h2>
+
+	<svg viewBox="0 0 60 60">
+		<path d="M52.254 18.327c0.816-0.804 2.127-0.804 2.937 0s0.813 2.103 0 2.907l-23.724 23.49c-0.81 0.804-2.121 0.804-2.937 0l-23.724-23.49c-0.81-0.804-0.81-2.103 0-2.907 0.813-0.804 2.127-0.804 2.937 0l22.257 21.423 22.254-21.423z"></path>
+	</svg>
+</div>-->
+<div id="back">
+    <div class="block" style="height:60vh;">
+        <h2 data-scroll="toggle(.fromBottomIn, .fromBottomOut)">최근 들어 결혼에 대한 가치관이 필수에서 선택으로 변화함에 따라 1인 가구 수가 증가하고 있습니다.<br>
+    특히 그 중에서도 여성의 1인 가구 수는 여성의 사회진출 증가와 같은 요인으로 매년 끊임없이 증가하고 있습니다.<br>
+    이렇게 여성 1인 가구가 증가하자 비교적 사회적 약자인 여성, 그것도 혼자 사는 여성 1인 가구를 상대로 한 범죄 역시 증가하게 되었습니다. <br>
+    그래서 여성 1인 가구에 대한 치안 문제가 새로운 사회 문제로 대두되었고 이를 해결하기 위해 많은 노력을 해왔습니다. <br>
+    그러나 현재까지 여성 가구에 대한 치안은 여전히 안전함에 미치지 못하고 있고, 그에 따른 범죄도 줄어들지 않고 있어 아직 많은 여성 1인 가구들이 안전에 대한 두려움을 겪고 있습니다.<br>
+        </h2>
+    </div>
+</div>
+    <div class="block">
+        <div class="lnb">
+            <img src="img/back1.jpg">
+        </div>
+        <div class="content1" data-scroll="toggle(.fromLeftIn, .fromLeftOut)">
+            여성의 1인 가구 수에 대해 분석한 자료입니다.<br>
+            여성 1인 가구 수는 2000년부터 시작해서 현재까지 끊임없이 증가해온 것을 알 수 있으며<br>
+            이것을 기반으로 2045년에는 약 390만 가구까지 증가할 것으로 예상하고 있습니다. <br>
+            이를 통해 우리는 여성 1인 가구 수가 앞으로 계속해서 증가해왔으며 앞으로도 증가할 것을 알 수 있습니다.
+        </div>
+        <br><br><br>
+        <div class="lnb">
+            <img src="img/back2.jpg">
+        </div>
+        <div class="content2" data-scroll="toggle(.fromLeftIn, .fromLeftOut)">
+            1인 가구인 여성이 사회가 안전하다고 생각하는 지에 관한 통계 자료입니다.<br>
+            자료를 분석해보면 여성 1인 가구 중 절반에 달하는 46.2%가 사회 안전에 대해 ‘불안하다’라고 생각하고 있는 것을 볼 수 있습니다. <br>
+            또한, ‘불안하다’를 선택한 여성들이 선택한 불안한 요인 중에는 범죄가 37.2%로 가장 비중을 많이 차지하고 있습니다. <br>
+            실제로 혼자 사는 여성들이 SNS나 커뮤니티를 통해 자신이 경험한 범죄 사례를 공유한 사례가 있었습니다. <br>
+            이 사례를 살펴보면, 혼자 사는 여성을 노리는 범죄가 주변 곳곳에서 빈번하게 일어나고 있음을 알 수 있습니다. <br>
+            <br><br><br> 
+        </div>
+    </div>
+    <div class="block">
+        <br><br><br>
+        <h2 data-scroll="toggle(.fromLeftIn, .fromLeftOut)">
+        자료들을 통해 여성 1인 가구는 계속해서 증가하고 있지만 그에 따른 치안 문제는 여전히 해결되고 있지 않아 상당수의 여성들이 범죄와 같은 요인으로 불안함에 떨고 있습니다. <br>
+        혼자 사는 여성들은 SNS나 커뮤니티를 통해 현관에 남자 신발 두기, TV 켜두고 가기 등과 같은 방법들을 공유해서 사용하며 스스로 범죄를 당하지 않게끔 조심하고 경계한다고 합니다.
+        <br>
+        그래서 저희는 이처럼 쉽게 범죄의 대상이 되는 사회적 약자 계층을 위해 음성 변조 및 녹음을 통해 사람과 대화를 하는 것처럼 보이게 해서 마치 혼자 사는 것이 아닌 것처럼 <br>
+        보이게 하여 조금이나마 범죄의 대상이 되지 않게끔 하고 범죄에 대한 불안감을 해소할 수 있는 앱을 기획하게 되었습니다. 
+        </h2>
+    </div>
+    <div class="block" style="height:170vh;">
+        <div class="lnb">
+            <img src="img/first_main.png" width=180 height=320>
+        </div>
+        <div id="function" data-scroll="toggle(.fromLeftIn, .fromLeftOut)">
+            스플래쉬/로그인 화면<br>집 모양과 사람 모양을 합쳐 메인 아이콘을 생성했습니다.<br>
+            로그인은 구글로그인으로 구글계정과 연계하였습니다.<br>
+            커뮤니티 파트에서 사용자의 구글계정의 사진과 아이디를 자동으로 받아옵니다.
+        </div>
+        <br><br><br><br><br><br><br><br>
+        <div class="lnb">
+            <img src="img/library2.png" width=180 height=320>
+        </div>
+        <div class="content1" data-scroll="toggle(.fromLeftIn, .fromLeftOut)">
+            라이브러리 화면<br>
+            다양한 음성파일로 사용자가 혼자 살지 않는다는 것을 표출할 수 있습니다.<br>
+            비슷한 파일끼리 카테고리별로 한 눈에 볼 수 있습니다.<br>
+            사용자가 자주 사용하는 파일을 즐겨찾기를 하면 사용자가 자주 사용하는 음성파일끼리 볼 수 있습니다.<br>자신만의 재생목록을 만들어서 선택한 파일만 플레이 할 수 있습니다.<br>해시태그 및 단어 검색으로 파일을 찾을 수 있습니다.
+        </div>
+        <br><br><br><br><br><br>
+        <div class="lnb">
+            <img src="img/commu.png" width=180 height=320>
+        </div>
+        <div class="content1" data-scroll="toggle(.fromLeftIn, .fromLeftOut)">
+            커뮤니티 화면<br>
+            혼자 사는 사용자들끼리 좋은 정보를 공유할 수 있습니다.<br>자신이 보고 싶은 글이 있으면 단어 검색을 통해서 글을 볼 수 있습니다.<br>
+            사용자가 글을 쓰고, 다른 사용자들이 쓴 글을 볼 수 있습니다.
+        </div>
+    </div>
+    <div class="block">
+        <form id="review">
+            학번 <input type="text" name="number" id="number" placeholder="1101"><br>
+            이름 <input type="text" name="name" id="name" placeholder="나미림"><br>
+            리뷰 <br><textarea rows="20" cols="50" id="text" placeholder="짧은 리뷰도 좋아요♡"></textarea><br>
+                <input type="image" src="img/submit.png" border="0" onclick="insert(this.form.name.value, this.form.number.value, this.form.text.value)" style="width:50px; height:24px;">
+        </form>
+    </div>
+
+<script src="../ScrollTrigger.min.js"></script>
+<script>
+window.counter = function() {
+	// this refers to the html element with the data-scroll-showCallback tag
+	var span = this.querySelector('span');
+	var current = parseInt(span.textContent);
+
+	span.textContent = current + 1;
+};
+
+document.addEventListener('DOMContentLoaded', function(){
+  var trigger = new ScrollTrigger({
+	  addHeight: true
+  });
+});
+</script>
+
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:200,300,500,700" rel="stylesheet">
+
+<!-- 화살표 아이콘 -->
+<a href="#"
+title="Back to Top"
+style="display:scroll;position:fixed;bottom:30px;right:15px;"
+onfocus='this.blur()'>
+<img 
+src="img/up.png"
+style="width:40px; height:40px; border-radius: 15px;"/>
+</a>
+
+</body>
+</html>
