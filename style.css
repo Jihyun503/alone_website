@@ -97,6 +97,7 @@ div.block svg path
 div.block:nth-child(1n)
 {
 	background: #8FB0BF;
+    color: white;
 }
 
 div.block:nth-child(2n)
